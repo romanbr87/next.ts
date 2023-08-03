@@ -1,2 +1,2 @@
 # next.ts-remult
- next.ts+remult client for kishurit website
+ next.js + remult client written using typescript llanguage for kishurit website
