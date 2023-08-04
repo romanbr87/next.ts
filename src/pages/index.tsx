@@ -3,9 +3,10 @@ import React, { FormEvent, useEffect, useState, useRef } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { isMobile } from "react-device-detect";
 import { fetchData, serverURL } from "@/lib/api";
-import SearchPanel, {WidthType} from "@/components/SearchPanel";
+import SearchPanel, { WidthType } from "@/components/SearchPanel";
 import RegionPanel from "@/components/RegionPanel";
 import CitiesSelect from "@/components/CitySelect";
+import useWindowSize from "@/lib/hooks/useWindowSize";
 import { Bussiness } from "@/types/data";
 
 export default function Home() {
@@ -17,7 +18,7 @@ export default function Home() {
   const [city, setCity] = useState<string>("");
   //const [name, setName] = useState<string>("");
   const elementColoumnWidth: WidthType =
-  window.innerWidth < 1200 ? { lg: 5, md: 5 } : { lg: 4, md: 4 };
+    useWindowSize()?.width < 1200 ? { lg: 5, md: 5 } : { lg: 4, md: 4 };
 
   const searchText = useRef<HTMLInputElement>(null);
 
@@ -27,7 +28,7 @@ export default function Home() {
       alert("הכנס ערך");
       return false;
     }
-    
+
     const dataToserver = {
       searchText: searchText?.current?.value,
       location,
@@ -60,15 +61,16 @@ export default function Home() {
         קישורית
       </h2>
       <br style={{ padding: "0", margin: "0" }} />
-      <Form onSubmit={SearchInData}>
-        <SearchPanel searchText={searchText} {...elementColoumnWidth} />
+      <Form onSubmit={SearchInData} as={Col} lg={4} md={4}>
+        {/* <SearchPanel searchText={searchText} {...elementColoumnWidth} /> */}
+        <SearchPanel searchText={searchText} />
         <RegionPanel location={location} setLocation={setLocation} />
-          {/* <DataCat {...elementColoumnWidth} index={index} setIndex={setIndex} /> */ }
-          <CitiesSelect
-            setCity={setCity}
-            col={elementColoumnWidth}
-            className="mt-2"
-          /> 
+        {/* <DataCat {...elementColoumnWidth} index={index} setIndex={setIndex} /> */}
+        <CitiesSelect
+          setCity={setCity}
+          col={elementColoumnWidth}
+          className="mt-2"
+        />
       </Form>
     </Container>
   );
