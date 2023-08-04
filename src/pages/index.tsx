@@ -9,6 +9,90 @@ import CitiesSelect from "@/components/CitySelect";
 import useWindowSize from "@/lib/hooks/useWindowSize";
 import { Bussiness } from "@/types/data";
 
+const MetaData = () => (
+  <Head>
+    <meta charSet="utf-8" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes"
+    />
+    <link rel="canonical" href="https://kishurit.vercel.app/" />
+    <meta name="application-url" content="https://kishurit.vercel.app/" />
+
+    <meta
+      name="google-site-verification"
+      content="INZ1lPlJ4uJihxsPJiYcnm62efEwDySXzWSfo5iZfIQ"
+    />
+    <meta name="robots" content="index, follow, noodp, noydir" />
+    <meta name="googlebot" content="index, follow, noodp, noydir" />
+    <meta name="bingbot" content="index, follow, noodp, noydir" />
+    <meta name="generator" content="slidify" />
+    <meta name="google" content="notranslate" />
+
+    <meta name="title" content="קישורית" />
+    <meta name="application-name" content="קישורית" />
+    <meta name="image" content="%PUBLIC_URL%/newjob.jpg" />
+    <meta
+      name="description"
+      content="אינדקס אתרים של מקומות תעסוקה, חברות כוח אדם, לוחות דרושים ועמותות בתחום התעסוקה"
+    />
+    <meta
+      name="keywords"
+      content="קישורית, גיוס, עובדים, תעסוקה, עבודה, דרושים, מקומות תעסוקה, מקומות עבודה"
+    />
+    <meta name="author" content="https://www.facebook.com/RonenBr60" />
+
+    <link rel="icon" href="%PUBLIC_URL%/newjob.jpg" />
+    <link id="favicon" rel="shortcut icon" href="%PUBLIC_URL%/newjob.jpg" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/newjob.jpg" />
+
+    {/* Google Search Engine Tags */}
+    <meta itemProp="name" content="קישורית" />
+    <meta
+      itemProp="description"
+      content="אינדקס אתרים של מקומות תעסוקה, חברות כוח אדם, לוחות דרושים ועמותות בתחום התעסוקה"
+    />
+    <meta itemProp="image" content="%PUBLIC_URL%/newjob.jpg" />
+
+    {/* Facebook open graph */}
+    <meta property="og:locale" content="he_IL" />
+    <meta property="og:title" content="קישורית" />
+    <meta property="og:site_name" content="קישורית" />
+    <meta
+      property="og:description"
+      content="אינדקס אתרים של מקומות תעסוקה, חברות כוח אדם, לוחות דרושים ועמותות בתחום התעסוקה"
+    />
+    <meta property="og:url" content="https://kishurit.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="%PUBLIC_URL%/newjob.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="fb:pages" content="110682567074630" />
+
+    {/* Twitter open graph */}
+    <meta name="twitter:title" content="קישורית" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ronenbr60" />
+    <meta
+      name="twitter:description"
+      content="אינדקס אתרים של מקומות תעסוקה, חברות כוח אדם, לוחות דרושים ועמותות בתחום התעסוקה"
+    />
+    <meta
+      name="twitter:text:description"
+      content="אינדקס אתרים של מקומות תעסוקה, חברות כוח אדם, לוחות דרושים ועמותות בתחום התעסוקה"
+    />
+    <meta name="twitter:image" content="%PUBLIC_URL%/newjob.jpg" />
+    <meta name="twitter:image:src" content="%PUBLIC_URL%/newjob.jpg" />
+
+    {/* manifest.json provides metadata used when your web app is installed */}
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    {/* Notice the use of %PUBLIC_URL% in the tags above. */}
+    <title>קישורית</title>
+  </Head>
+);
+
 export default function Home() {
   const [data, setData] = useState<Bussiness[]>([]);
   const [index, setIndex] = useState<number>(0);
@@ -55,7 +139,7 @@ export default function Home() {
 
   return (
     <Container className="uicontainer" fluid={isMobile}>
-      <Head>{/* Place all the necessary head tags here */}</Head>
+      <MetaData />
 
       <h2 className="text-center title" style={{ textDecoration: "underline" }}>
         קישורית
