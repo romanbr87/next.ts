@@ -34,7 +34,7 @@ const MetaData = () => (
 
     <meta name="title" content="קישורית" />
     <meta name="application-name" content="קישורית" />
-    <meta name="image" content="%PUBLIC_URL%/newjob.jpg" />
+    <meta name="image" content="/newjob.jpg" />
     <meta
       name="description"
       content="אינדקס אתרים של מקומות תעסוקה, חברות כוח אדם, לוחות דרושים ועמותות בתחום התעסוקה"
@@ -45,9 +45,10 @@ const MetaData = () => (
     />
     <meta name="author" content="https://www.facebook.com/RonenBr60" />
 
-    <link rel="icon" href="%PUBLIC_URL%/newjob.jpg" />
-    <link id="favicon" rel="shortcut icon" href="%PUBLIC_URL%/newjob.jpg" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/newjob.jpg" />
+    <link id="favicon" rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
     {/* Google Search Engine Tags */}
     <meta itemProp="name" content="קישורית" />
@@ -55,7 +56,7 @@ const MetaData = () => (
       itemProp="description"
       content="אינדקס אתרים של מקומות תעסוקה, חברות כוח אדם, לוחות דרושים ועמותות בתחום התעסוקה"
     />
-    <meta itemProp="image" content="%PUBLIC_URL%/newjob.jpg" />
+    <meta itemProp="image" content="/newjob.jpg" />
 
     {/* Facebook open graph */}
     <meta property="og:locale" content="he_IL" />
@@ -67,7 +68,7 @@ const MetaData = () => (
     />
     <meta property="og:url" content="https://kishurit.vercel.app/" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="%PUBLIC_URL%/newjob.jpg" />
+    <meta property="og:image" content="/newjob.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="fb:pages" content="110682567074630" />
 
@@ -83,12 +84,11 @@ const MetaData = () => (
       name="twitter:text:description"
       content="אינדקס אתרים של מקומות תעסוקה, חברות כוח אדם, לוחות דרושים ועמותות בתחום התעסוקה"
     />
-    <meta name="twitter:image" content="%PUBLIC_URL%/newjob.jpg" />
-    <meta name="twitter:image:src" content="%PUBLIC_URL%/newjob.jpg" />
+    <meta name="twitter:image" content="/newjob.jpg" />
+    <meta name="twitter:image:src" content="/newjob.jpg" />
 
     {/* manifest.json provides metadata used when your web app is installed */}
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    {/* Notice the use of %PUBLIC_URL% in the tags above. */}
+    <link rel="manifest" href="/manifest.json" />
     <title>קישורית</title>
   </Head>
 );
