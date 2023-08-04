@@ -5,7 +5,8 @@ import type { AppProps } from "next/app";
 import { store } from "@/redux/index";
 import { Provider } from "react-redux";
 
-import "@/styles/globals.css";
+// import "@/styles/globals.css";
+// import "@/styles/Home.module.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "@/styles/style.css";
 

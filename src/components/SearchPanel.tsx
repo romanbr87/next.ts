@@ -9,10 +9,10 @@ interface SearchPanelProps extends WidthType {
   searchText: React.RefObject<HTMLInputElement>;
 }
 
-export default function SearchPanel({ searchText, lg, md }: SearchPanelProps) {
+export default function SearchPanel({ searchText }: SearchPanelProps) {
   return (
     <Row className="mb-2">
-      <Col lg={lg} md={md}>
+      <Col lg={12} md={12}>
         <InputGroup size="sm" style={{ direction: "ltr" }}>
           <Button type="submit" variant="outline-secondary">
             <span>
