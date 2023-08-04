@@ -1,9 +1,12 @@
 import { Button, Col, FormControl, InputGroup, Row } from "react-bootstrap";
 
-interface SearchPanelProps {
-  searchText: React.RefObject<HTMLInputElement>;
+export interface WidthType {
   lg: number;
   md: number;
+}
+
+interface SearchPanelProps extends WidthType {
+  searchText: React.RefObject<HTMLInputElement>;
 }
 
 export default function SearchPanel({ searchText, lg, md }: SearchPanelProps) {
