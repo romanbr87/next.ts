@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Provider store={store}>
         <Menu />
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
         <Footer />
       </Provider>
     </>

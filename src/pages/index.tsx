@@ -3,37 +3,42 @@ import React, { FormEvent, useEffect, useState, useRef } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { isMobile } from "react-device-detect";
 import { fetchData, serverURL } from "@/lib/api";
-import SearchPanel from "@/components/SearchPanel";
+import SearchPanel, {WidthType} from "@/components/SearchPanel";
+import RegionPanel from "@/components/RegionPanel";
+import CitiesSelect from "@/components/CitySelect";
+import { Bussiness } from "@/types/data";
 
 export default function Home() {
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<Bussiness[]>([]);
   const [index, setIndex] = useState<number>(0);
-  const [searchData, setSearchData] = useState<any[]>([]);
+  const [searchData, setSearchData] = useState<Bussiness[]>([]);
   const [location, setLocation] = useState<string>("");
   //const [showModal, setShowModal] = useState<boolean>(false);
-  //const [city, setCity] = useState<string>("");
+  const [city, setCity] = useState<string>("");
   //const [name, setName] = useState<string>("");
-  const [elementColoumnWidth, setElementColoumnWidth] = useState<{
-    lg: number;
-    md: number;
-  }>({ lg: 5, md: 5 });
-  const searchText = useRef<any>("");
+  const elementColoumnWidth: WidthType =
+  window.innerWidth < 1200 ? { lg: 5, md: 5 } : { lg: 4, md: 4 };
+
+  const searchText = useRef<HTMLInputElement>(null);
 
   const SearchInData = (e: FormEvent) => {
     e.preventDefault();
-    if (searchText.current.value.trim() === "") {
+    if (searchText?.current?.value.trim() === "") {
       alert("הכנס ערך");
+      return false;
     }
+    
     const dataToserver = {
-      searchText: searchText.current.value,
-      location: location,
+      searchText: searchText?.current?.value,
+      location,
     };
+
     fetchData(serverURL("/search"), "POST", dataToserver)
       .then((dataFromServer) => {
         setSearchData(dataFromServer);
         setIndex(-1);
       })
-      .catch((err) => {
+      .catch((err: Error) => {
         setIndex(-1);
         setSearchData([]);
       });
@@ -57,13 +62,13 @@ export default function Home() {
       <br style={{ padding: "0", margin: "0" }} />
       <Form onSubmit={SearchInData}>
         <SearchPanel searchText={searchText} {...elementColoumnWidth} />
-        {/* <RegionPanel location={location} setLocation={setLocation} />
-          <DataCat {...elementColoumnWidth} index={index} setIndex={setIndex} />
+        <RegionPanel location={location} setLocation={setLocation} />
+          {/* <DataCat {...elementColoumnWidth} index={index} setIndex={setIndex} /> */ }
           <CitiesSelect
             setCity={setCity}
             col={elementColoumnWidth}
             className="mt-2"
-          /> */}
+          /> 
       </Form>
     </Container>
   );
